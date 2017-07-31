@@ -6,38 +6,22 @@
 
 <img src="C:\Users\Kristen%20Tuomey\Pictures\Saved%20Pictures\kershaw.jpg" width="400" height="300">
 
-<p>
-<h2> 2017</h2>
-</p>
+<p><h2> 2017</h2></p>
 
-<h4>
-  <a href=http://www.brooksbaseball.net/pfxVB/pfx.php>PITCHf/x-Brooks Baseball</a>
-</h4>
+<h4><a href=http://www.brooksbaseball.net/pfxVB/pfx.php>PITCHf/x-Brooks Baseball</a></h4>
 
-<p>
-  Used to view a particular pitcher's performance in a particular game.  Select the date, then the game, then the pitcher.  Very useful for judging recent results against prior results and gauging the reason for any changes.  For example, has this pitcher's velocity gone up or down?  Which pitch is most effective, and how often is he throwing it?
-</p>
+<p>  Used to view a particular pitcher's performance in a particular game.  Select the date, then the game, then the pitcher.  Very useful for judging recent results against prior results and gauging the reason for any changes.  For example, has this pitcher's velocity gone up or down?  Which pitch is most effective, and how often is he throwing it?</p>
 
-<h4>
-<a href=http://www.baseballprospectus.com/sortable/index.php?cid=2022356>CFIP-Baseball Prospectus</a>
-</h4>
+<h4><a href=http://www.baseballprospectus.com/sortable/index.php?cid=2022356>CFIP-Baseball Prospectus</a></h4>
 
-<p>
-  Predictive, rather than descriptive, global pitching statistic
-</p>
+<p>  Predictive, rather than descriptive, global pitching statistic</p>
 
-<h4>
-  <a href=http://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=all&qual=0&type=1&season=2017&month=0&season1=2017&ind=0&team=0&rost=0&age=0&filter=&players=p2017-05-08&sort=19,d>ERA minus FIP</a>
-</h4>
+<h4>  <a href=http://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=all&qual=0&type=1&season=2017&month=0&season1=2017&ind=0&team=0&rost=0&age=0&filter=&players=p2017-05-08&sort=19,d>ERA minus FIP</a></h4>
 
-<p>
-  ERA minus FIP is the expected regression a pitcher is likely to undergo.  A larger number generally forecasts greater positive regression, and a negative number indicates negative expected regression.
-</p>
-
-
+<p>  ERA minus FIP is the expected regression a pitcher is likely to undergo.  A larger number generally forecasts greater positive regression, and a negative number indicates negative expected regression.</p>
 
 <table border="1" cellpadding="5" cellspacing="5">
-    {% for row in baseball %}
+    {% for row in starting_pitchers %}
         <tr>
         {% for d in row %}
             <td>{{ d }}</td>

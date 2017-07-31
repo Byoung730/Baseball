@@ -1,7 +1,9 @@
-from flask import Flask, request, redirect, render_template, flash
-from flask_sqlalchemy import SQLAlchemy
 import jinja2, os, re
-from models import Stats
+from models import Baseball
+from flask_sqlalchemy import SQLAlchemy
+import os
+import sqlite3
+from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -9,22 +11,24 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://baseball:baseball@local
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
 
-
-
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape = True)
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape=True)
 
-
-
-@app.route("/", methods=['GET','POST'])
+@app.route("/", methods=['GET', 'POST'])
 def index():
 
-    def get_stats(self, limit, offset):
-        """ Get all stats for display table """
-        query = baseball.all()
-        return query.fetch()
+    def connect_db():
+        """Connects to the specific database."""
+        Baseball = sqlite3.connect(app.config['Baseball'])
+        Baseball.row_factory = sqlite3.Row
+        return Baseball
 
-    return render_template('index.html', title="baseball")
+    def get_db():
+        if not hasattr(g, 'sqlite_db'):
+            g.sqlite_db = connect_db()
+        return g.sqlite_db
+
+
 
 if __name__ == '__main__':
     app.run()
