@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Baseball_Analysis</title>
+    <title>Baseball_Analysis_cfip</title>
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/styles.css">
     </head>
@@ -29,12 +29,12 @@
 <p><h2>Top 10 SP stat table</h2></p>
 <table border="1" cellpadding="5" cellspacing="5">
     <tr>
-        <th><a href="http://localhost:5000/name">Name</a></th>
+        <th>Name</th>
         <th><a href="http://localhost:5000/fp_rank">FP Rank</a></th>
         <th><a href="http://localhost:5000/sw_rank">SW Rank</a></th>
         <th><a href="http://localhost:5000/ct_rank">CT Rank</a></th>
         <th><a href="http://localhost:5000/hc_rank">HC Rank</a></th>
-        <th><a href="http://localhost:5000/xfip">CFIP</a></th>
+        <th><a href="http://localhost:5000/cfip">CFIP</a></th>
         <th><a href="http://localhost:5000/xfip">xFIP</a></th>
         <th><a href="http://localhost:5000/fip">FIP</a></th>
         <th><a href="http://localhost:5000/kperbb">KperBB</a></th>
@@ -47,7 +47,7 @@
         <th><a href="http://localhost:5000/gb_rate">GB%</a></th>
         <th><a href="http://localhost:5000/sc_rate">SC%</a></th>
     </tr>
-   {% for row in baseball %}
+   {% for row in name_page %}
     <tr>
         <td>{{ row.Name }}</td>
         <td>{{ row.FP_Rank }}</td>

@@ -39,7 +39,7 @@
         <th><a href="http://localhost:5000/fip">FIP</a></th>
         <th><a href="http://localhost:5000/kperbb">KperBB</a></th>
         <th><a href="http://localhost:5000/total_ks">Total Ks</a></th>
-        <th><a href="http://localhost:5000/whip">WHIP</a></th>
+        <th>WHIP</th>
         <th><a href="http://localhost:5000/era">ERA</a></th>
         <th><a href="http://localhost:5000/ip">IP</a></th>
         <th><a href="http://localhost:5000/wins">Wins</a></th>
@@ -47,7 +47,7 @@
         <th><a href="http://localhost:5000/gb_rate">GB%</a></th>
         <th><a href="http://localhost:5000/sc_rate">SC%</a></th>
     </tr>
-   {% for row in baseball %}
+   {% for row in whip_page %}
     <tr>
         <td>{{ row.Name }}</td>
         <td>{{ row.FP_Rank }}</td>

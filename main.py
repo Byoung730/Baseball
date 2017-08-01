@@ -49,11 +49,68 @@ class starting_pitchers(db.Model):
         self.HC_Rank = HC_Rank
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET'])
 def index():
     baseball = starting_pitchers.query.all()
 
     return render_template('index.html', title="Baseball", baseball=baseball)
+
+@app.route("/cfip", methods=['GET'])
+def CFIP_page():
+
+    cfip_page = starting_pitchers.query.order_by('CFIP asc')
+
+    return render_template('cfip.html', title='CFIP', cfip_page=cfip_page)
+
+@app.route("/xfip", methods=['GET'])
+def xFIP_page():
+
+    xfip_page = starting_pitchers.query.order_by('xFIP asc')
+
+    return render_template('xfip.html', title='xFIP', xfip_page=xfip_page)
+
+
+@app.route("/fip", methods=['GET'])
+def FIP_page():
+
+    fip_page = starting_pitchers.query.order_by('FIP asc')
+
+    return render_template('fip.html', title='FIP', fip_page=fip_page)
+
+@app.route("/kperbb", methods=['GET'])
+def kperbb_page():
+
+    kperbb_page = starting_pitchers.query.order_by('KperBB desc')
+
+    return render_template('kperbb.html', title='FIP', kperbb_page=kperbb_page)
+
+@app.route("/total_ks", methods=['GET'])
+def total_ks_page():
+
+    total_ks_page = starting_pitchers.query.order_by('Total_Ks desc')
+
+    return render_template('total_ks.html', title='Total Ks', total_ks_page=total_ks_page)
+
+@app.route("/name", methods=['GET'])
+def name_page():
+
+    name_page = starting_pitchers.query.order_by('Name asc')
+
+    return render_template('name.html', title='Name', name_page=name_page)
+
+@app.route("/whip", methods=['GET'])
+def WHIP_page():
+
+    whip_page = starting_pitchers.query.order_by('WHIP asc')
+
+    return render_template('whip.html', title='WHIP', whip_page=whip_page)
+
+@app.route("/era", methods=['GET'])
+def ERA_page():
+
+    era_page = starting_pitchers.query.order_by('ERA asc')
+
+    return render_template('era.html', title='ERA', era_page=era_page)
 
 '''def algorithm():
 
