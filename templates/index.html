@@ -26,13 +26,30 @@
 
 <p>  ERA minus FIP is the expected regression a pitcher is likely to undergo.  A larger number generally forecasts greater positive regression, and a negative number indicates negative expected regression.</p>
 
-<p><h2>Top 100 SP stat table</h2></p>
+<p><h2>Top 10 SP stat table</h2></p>
 <table border="1" cellpadding="5" cellspacing="5">
-    {% for row in baseball %}
-        <tr>
-            <td>{{ row }}</td>
-        </tr>
-    {% endfor %}
+   {% for row in baseball %}
+    <tr>
+        <td>{{ row.Name }}</td>
+        <td>{{ row.ID }}</td>
+        <td>{{ row.CFIP }}</td>
+        <td>{{ row.xFIP }}</td>
+        <td>{{ row.FIP }}</td>
+        <td>{{ row.KperBB }}</td>
+        <td>{{ row.Total_Ks }}</td>
+        <td>{{ row.WHIP }}</td>
+        <td>{{ row.ERA }}</td>
+        <td>{{ row.Innings_Pitched }}</td>
+        <td>{{ row.Wins }}</td>
+        <td>{{ row.Quality_Start_Rate }}</td>
+        <td>{{ row.Ground_Ball_Rate }}</td>
+        <td>{{ row.Soft_Contact_Rate }}</td>
+        <td>{{ row.FP_Rank }}</td>
+        <td>{{ row.SW_Rank }}</td>
+        <td>{{ row.CT_rank }}</td>
+        <td>{{ row.HC_Rank }}</td>
+    </tr>
+{% endfor %}
 </table>
 
 </body>

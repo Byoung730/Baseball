@@ -21,7 +21,6 @@ class starting_pitchers(db.Model):
     Innings_Pitched = db.Column(db.Float)
     Wins = db.Column(db.Integer)
     Quality_Start_Rate = db.Column(db.Integer)
-    '''Swg_Strike_Rate = db.Column(db.Float)'''
     Ground_Ball_Rate = db.Column(db.Float)
     Soft_Contact_Rate = db.Column(db.Float)
     FP_Rank = db.Column(db.Integer, unique=True)
@@ -42,7 +41,6 @@ class starting_pitchers(db.Model):
         self.Innings_Pitched = Innings_Pitched
         self.Wins = Wins
         self.Quality_Start_Rate = Quality_Start_Rate
-        """self.Swg_Strike_Rate = Swg_Strike_Rate"""
         self.Ground_Ball_Rate = Ground_Ball_Rate
         self.Soft_Contact_Rate = Soft_Contact_Rate
         self.FP_Rank = FP_Rank
