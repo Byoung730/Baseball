@@ -1,4 +1,12 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Baseball_Analysis</title>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+
 <body>
 <h1>Fantasy Pitcher Quick Info</h1>
 
@@ -18,12 +26,11 @@
 
 <p>  ERA minus FIP is the expected regression a pitcher is likely to undergo.  A larger number generally forecasts greater positive regression, and a negative number indicates negative expected regression.</p>
 
+<p><h2>Top 100 SP stat table</h2></p>
 <table border="1" cellpadding="5" cellspacing="5">
-    {% for row in starting_pitchers %}
+    {% for row in baseball %}
         <tr>
-        {% for d in row %}
-            <td>{{ d }}</td>
-        {% endfor %}
+            <td>{{ row }}</td>
         </tr>
     {% endfor %}
 </table>

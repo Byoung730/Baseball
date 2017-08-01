@@ -1,21 +1,62 @@
-from flask import Flask, render_template
+from flask import Flask, request, redirect, render_template, flash
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine, MetaData, Table
-
-engine = create_engine('sqlite:///tmp/test.db', convert_unicode=True)
-metadata = MetaData(bind=engine)
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://baseball:baseball@localhost:8889/baseball'
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
-@app.route('/')
-def index():
 
-        starting_pitchers = Table('starting_pitchers', metadata, autoload=True)
-        baseball = [i for i in starting_pitchers.query.all()]
-        return render_template('index.html', title='Home', baseball=baseball)
+
+class starting_pitchers(db.Model):
+    Name = db.Column(db.String(80), unique=True)
+    ID = db.Column(db.Integer, primary_key=True)
+    CFIP = db.Column(db.Integer)
+    xFIP = db.Column(db.Float)
+    FIP = db.Column(db.Float)
+    KperBB = db.Column(db.Float)
+    Total_Ks = db.Column(db.Integer)
+    WHIP = db.Column(db.Float)
+    ERA = db.Column(db.Float)
+    Innings_Pitched = db.Column(db.Float)
+    Wins = db.Column(db.Integer)
+    Quality_Start_Rate = db.Column(db.Integer)
+    '''Swg_Strike_Rate = db.Column(db.Float)'''
+    Ground_Ball_Rate = db.Column(db.Float)
+    Soft_Contact_Rate = db.Column(db.Float)
+    FP_Rank = db.Column(db.Integer, unique=True)
+    SW_Rank = db.Column(db.Integer)
+    CT_Rank = db.Column(db.Integer)
+    HC_Rank = db.Column(db.Integer)
+
+    def __init__(self, Name, CFIP, xFIP, FIP, KperBB, Total_Ks, WHIP, ERA, Innings_Pitched, Wins, Quality_Start_Rate,
+                 Ground_Ball_Rate, Soft_Contact_Rate, FP_Rank, SW_Rank, CT_Rank, HC_Rank):
+        self.Name = Name
+        self.CFIP = CFIP
+        self.xFIP = xFIP
+        self.FIP = FIP
+        self.KperBB = KperBB
+        self.Total_Ks = Total_Ks
+        self.WHIP = WHIP
+        self.ERA = ERA
+        self.Innings_Pitched = Innings_Pitched
+        self.Wins = Wins
+        self.Quality_Start_Rate = Quality_Start_Rate
+        """self.Swg_Strike_Rate = Swg_Strike_Rate"""
+        self.Ground_Ball_Rate = Ground_Ball_Rate
+        self.Soft_Contact_Rate = Soft_Contact_Rate
+        self.FP_Rank = FP_Rank
+        self.SW_Rank = SW_Rank
+        self.CT_Rank = CT_Rank
+        self.HC_Rank = HC_Rank
+
+
+@app.route("/", methods=['GET', 'POST'])
+def index():
+    baseball = starting_pitchers.query.all()
+
+    return render_template('index.html', title="Baseball", baseball=baseball)
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
