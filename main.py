@@ -55,6 +55,26 @@ def index():
 
     return render_template('index.html', title="Baseball", baseball=baseball)
 
+'''def algorithm():
+
+    CFIP_Sort = ("SELECT * FROM starting_pitchers ORDER BY CFIP ASC")
+    xFIP_Sort = ("SELECT * FROM starting_pitchers ORDER BY xFIP ASC")
+    FIP_Sort = ("SELECT * FROM starting_pitchers ORDER BY FIP ASC")
+    KperBB_Sort = ("SELECT * FROM starting_pitchers ORDER BY KperBB DESC")
+    Total_Ks_Sort = ("SELECT * FROM starting_pitchers ORDER BY Total_Ks DESC")
+    WHIP_Sort = ("SELECT * FROM starting_pitchers ORDER BY WHIP ASC")
+    ERA_Sort = ("SELECT * FROM starting_pitchers ORDER BY ERA ASC")
+    Innings_Pitched_Sort = ("SELECT * FROM starting_pitchers ORDER BY Innings_Pitched DESC")
+    Wins_Sort = ("SELECT * FROM starting_pitchers ORDER BY Wins DESC")
+    Quality_Start_Rate_Sort = ("SELECT * FROM starting_pitchers ORDER BY Quality_Start_Rate DESC")
+    Ground_Ball_Rate_Sort = ("SELECT * FROM starting_pitchers ORDER BY Ground_Ball_Rate DESC")
+    Soft_Contact_Rate_Sort = ("SELECT * FROM starting_pitchers ORDER BY Soft_Contact_Rate DESC")
+    FP_Rank_Sort = ("SELECT * FROM starting_pitchers ORDER BY FP_Rank ASC")
+    SW_Rank_Sort = ("SELECT * FROM starting_pitchers ORDER BY SW_Rank ASC")
+    CT_Rank_Sort = ("SELECT * FROM starting_pitchers ORDER BY CT_Rank ASC")
+    HC_Rank_Sort = ("SELECT * FROM starting_pitchers ORDER BY HC_Rank ASC")
+
+    return '''
 
 if __name__ == '__main__':
     app.run()
