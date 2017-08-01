@@ -112,6 +112,69 @@ def ERA_page():
 
     return render_template('era.html', title='ERA', era_page=era_page)
 
+@app.route("/ip", methods=['GET'])
+def IP_page():
+
+    ip_page = starting_pitchers.query.order_by('Innings_Pitched desc')
+
+    return render_template('ip.html', title='Innings Pitched', ip_page=ip_page)
+
+@app.route("/wins", methods=['GET'])
+def wins_page():
+
+    wins_page = starting_pitchers.query.order_by('Wins desc')
+
+    return render_template('wins.html', title='Wins', wins_page=wins_page)
+
+@app.route("/qs_rate", methods=['GET'])
+def qs_rate_page():
+
+    qs_rate_page = starting_pitchers.query.order_by('Quality_Start_Rate desc')
+
+    return render_template('qs_rate.html', title='Quality Start Rate', qs_rate_page=qs_rate_page)
+
+@app.route("/gb_rate", methods=['GET'])
+def gb_rate_page():
+
+    gb_rate_page = starting_pitchers.query.order_by('Ground_Ball_Rate desc')
+
+    return render_template('gb_rate.html', title='Ground Ball Rate', gb_rate_page=gb_rate_page)
+
+@app.route("/sc_rate", methods=['GET'])
+def sc_rate_page():
+
+    sc_rate_page = starting_pitchers.query.order_by('Soft_Contact_Rate desc')
+
+    return render_template('sc_rate.html', title='Soft Contact Rate', sc_rate_page=sc_rate_page)
+
+@app.route("/fp_rank", methods=['GET'])
+def fp_rank_page():
+
+    fp_rank_page = starting_pitchers.query.order_by('FP_Rank asc')
+
+    return render_template('fp_rank.html', title='FantasyPros Rank', fp_rank_page=fp_rank_page)
+
+@app.route("/sw_rank", methods=['GET'])
+def sw_rank_page():
+
+    sw_rank_page = starting_pitchers.query.order_by('SW_Rank asc')
+
+    return render_template('sw_rank.html', title='Scott White Rank', sw_rank_page=sw_rank_page)
+
+@app.route("/ct_rank", methods=['GET'])
+def ct_rank_page():
+
+    ct_rank_page = starting_pitchers.query.order_by('CT_Rank asc')
+
+    return render_template('ct_rank.html', title='Chris Towers Rank', ct_rank_page=ct_rank_page)
+
+@app.route("/hc_rank", methods=['GET'])
+def hc_rank_page():
+
+    hc_rank_page = starting_pitchers.query.order_by('HC_Rank asc')
+
+    return render_template('hc_rank.html', title='Heath Cummings Rank', hc_rank_page=hc_rank_page)
+
 '''def algorithm():
 
     CFIP_Sort = ("SELECT * FROM starting_pitchers ORDER BY CFIP ASC")

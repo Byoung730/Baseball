@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Baseball_Analysis_WHIP</title>
+    <title>Baseball_Analysis_SW_Rank</title>
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="/css/styles.css">
     </head>
@@ -31,7 +31,7 @@
     <tr>
         <th><a href="http://localhost:5000/name">Name</a></th>
         <th><a href="http://localhost:5000/fp_rank">FP Rank</a></th>
-        <th><a href="http://localhost:5000/sw_rank">SW Rank</a></th>
+        <th>SW Rank</th>
         <th><a href="http://localhost:5000/ct_rank">CT Rank</a></th>
         <th><a href="http://localhost:5000/hc_rank">HC Rank</a></th>
         <th><a href="http://localhost:5000/xfip">CFIP</a></th>
@@ -39,7 +39,7 @@
         <th><a href="http://localhost:5000/fip">FIP</a></th>
         <th><a href="http://localhost:5000/kperbb">KperBB</a></th>
         <th><a href="http://localhost:5000/total_ks">Total Ks</a></th>
-        <th>WHIP</th>
+        <th><a href="http://localhost:5000/whip">WHIP</a></th>
         <th><a href="http://localhost:5000/era">ERA</a></th>
         <th><a href="http://localhost:5000/ip">IP</a></th>
         <th><a href="http://localhost:5000/wins">Wins</a></th>
@@ -47,7 +47,7 @@
         <th><a href="http://localhost:5000/gb_rate">GB%</a></th>
         <th><a href="http://localhost:5000/sc_rate">SC%</a></th>
     </tr>
-   {% for row in whip_page %}
+   {% for row in sw_rank_page %}
     <tr>
         <td>{{ row.Name }}</td>
         <td>{{ row.FP_Rank }}</td>
