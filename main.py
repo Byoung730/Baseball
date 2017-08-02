@@ -175,6 +175,7 @@ def hc_rank_page():
 
     return render_template('hc_rank.html', title='Heath Cummings Rank', hc_rank_page=hc_rank_page)
 
+
 '''def algorithm():
 
     CFIP_Sort = ("SELECT * FROM starting_pitchers ORDER BY CFIP ASC")

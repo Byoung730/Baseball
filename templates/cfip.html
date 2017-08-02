@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Baseball_Analysis_cfip</title>
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/styles.css">
-    </head>
+{% extends 'base.html' %}
+{% block content %}
 
 <body>
 <h1>Fantasy Pitcher Quick Info</h1>
@@ -69,7 +63,4 @@
     </tr>
 {% endfor %}
 </table>
-
-</body>
-
-</html>
+{% endblock %}
