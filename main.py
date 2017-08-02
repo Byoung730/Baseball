@@ -176,7 +176,7 @@ def hc_rank_page():
     return render_template('hc_rank.html', title='Heath Cummings Rank', hc_rank_page=hc_rank_page)
 
 
-'''def algorithm(): '''
+'''def algorithm():
 def avgs(sp):
 
     CFIP_Sort_list = starting_pitchers.query.order_by('CFIP asc')
@@ -184,7 +184,7 @@ def avgs(sp):
     sp.Ground_Ball_Rate, sp.Soft_Contact_Rate, sp.FP_Rank, sp.SW_Rank, sp.CT_Rank, sp.HC_Rank
 
 
-    '''xFIP_Sort = ("SELECT * FROM starting_pitchers ORDER BY xFIP ASC")
+    xFIP_Sort = ("SELECT * FROM starting_pitchers ORDER BY xFIP ASC")
     FIP_Sort = ("SELECT * FROM starting_pitchers ORDER BY FIP ASC")
     KperBB_Sort = ("SELECT * FROM starting_pitchers ORDER BY KperBB DESC")
     Total_Ks_Sort = ("SELECT * FROM starting_pitchers ORDER BY Total_Ks DESC")
