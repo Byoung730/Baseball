@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<body>
 <h1>Fantasy Pitcher Quick Info</h1>
 
 <img src="static/images/kershaw.jpg" width="400" height="300" />
@@ -21,7 +20,7 @@
 <p>  ERA minus FIP is the expected regression a pitcher is likely to undergo.  A larger number generally forecasts greater positive regression, and a negative number indicates negative expected regression.</p>
 
 <p><h2>Top 10 SP stat table</h2></p>
-<table border="1" cellpadding="5" cellspacing="5">
+<table class="table" border="3" cellpadding="7" cellspacing="7">
     <tr>
         <th><a href="http://localhost:5000/name">Name</a></th>
         <th><a href="http://localhost:5000/fp_rank">FP Rank</a></th>

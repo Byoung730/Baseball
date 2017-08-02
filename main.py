@@ -49,10 +49,14 @@ class starting_pitchers(db.Model):
         self.HC_Rank = HC_Rank
 
 
+
+
+
 @app.route("/", methods=['GET'])
 def index():
     baseball = starting_pitchers.query.all()
 
+    print(baseball)
     return render_template('index.html', title="Baseball", baseball=baseball)
 
 @app.route("/cfip", methods=['GET'])
