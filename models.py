@@ -1,31 +1,41 @@
 from main import db
-from flask_sqlalchemy import SQLAlchemy
-from flask_mysqldb import MySQL
-from sqlalchemy.dialects import mysql
 
-class Baseball(db.Model):
-    __tablename__ = 'starting_pitchers'
-
+class starting_pitchers(db.Model):
     Name = db.Column(db.String(80), unique=True)
     ID = db.Column(db.Integer, primary_key=True)
     CFIP = db.Column(db.Integer)
-    xFIP = db.Column(db.decimal)
-    FIP = db.Column(db.float)
-    KperBB = db.Column(db.float)
+    xFIP = db.Column(db.Float)
+    FIP = db.Column(db.Float)
+    KperBB = db.Column(db.Float)
     Total_Ks = db.Column(db.Integer)
-    WHIP = db.Column(db.float)
-    ERA = db.Column(db.float)
-    Innings_Pitched = db.Column(db.float)
+    WHIP = db.Column(db.Float)
+    ERA = db.Column(db.Float)
+    Innings_Pitched = db.Column(db.Float)
     Wins = db.Column(db.Integer)
     Quality_Start_Rate = db.Column(db.Integer)
-    Swinging_Strike_Rate = db.Column(db.float)
-    Ground_Ball_Rate = db.Column(db.float)
-    Soft_Contact_Rate = db.Column(db.float)
+    Ground_Ball_Rate = db.Column(db.Float)
+    Soft_Contact_Rate = db.Column(db.Float)
     FP_Rank = db.Column(db.Integer, unique=True)
     SW_Rank = db.Column(db.Integer)
     CT_Rank = db.Column(db.Integer)
     HC_Rank = db.Column(db.Integer)
 
-    def __init__(self, ID, Name):
+    def __init__(self, Name, CFIP, xFIP, FIP, KperBB, Total_Ks, WHIP, ERA, Innings_Pitched, Wins, Quality_Start_Rate,
+                 Ground_Ball_Rate, Soft_Contact_Rate, FP_Rank, SW_Rank, CT_Rank, HC_Rank):
         self.Name = Name
-        self.ID = ID
+        self.CFIP = CFIP
+        self.xFIP = xFIP
+        self.FIP = FIP
+        self.KperBB = KperBB
+        self.Total_Ks = Total_Ks
+        self.WHIP = WHIP
+        self.ERA = ERA
+        self.Innings_Pitched = Innings_Pitched
+        self.Wins = Wins
+        self.Quality_Start_Rate = Quality_Start_Rate
+        self.Ground_Ball_Rate = Ground_Ball_Rate
+        self.Soft_Contact_Rate = Soft_Contact_Rate
+        self.FP_Rank = FP_Rank
+        self.SW_Rank = SW_Rank
+        self.CT_Rank = CT_Rank
+        self.HC_Rank = HC_Rank
