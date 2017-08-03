@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, render_template, flash
 from flask_sqlalchemy import SQLAlchemy
 from models import starting_pitchers
+from average import avgs
 
 app = Flask(__name__)
 app.config['DEBUG'] = True

@@ -36,7 +36,7 @@ def avgs():
 
     for o in CFIP_sort_list:
 
-        index_collector = CFIP_sort_list.index(o)
+        index_collector = (3*CFIP_sort_list.index(o))
         if o in xFIP_sort_list:
             index_collector += xFIP_sort_list.index(o)
         if o in FIP_sort_list:
@@ -68,11 +68,10 @@ def avgs():
         if o in HC_Rank_sort_list:
             index_collector += 3*(HC_Rank_sort_list.index(o))
 
+            Sorted_avg_dict[o.Name] = (index_collector / 26)
 
 
-        Avg_list.append(index_collector / 24)
-        Sorted_avg_dict = Avg_list.sort()
+    print(Sorted_avg_dict)
 
-    'print(Sorted_avg_list)'
+    return Sorted_avg_dict
 
-    return Sorted_avg_list
