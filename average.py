@@ -1,7 +1,7 @@
 from flask import Flask, request, redirect, render_template, flash
 from flask_sqlalchemy import SQLAlchemy
 from models import starting_pitchers
-from main import db 
+from main import db
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -29,7 +29,9 @@ def avgs():
     CT_Rank_sort_list = starting_pitchers.query.order_by('CT_Rank asc')
     HC_Rank_sort_list = starting_pitchers.query.order_by('HC_Rank asc')
 
-    Sorted_avg_list = []
+    'dictionary key will be ID, value will be composite average'
+
+    Sorted_avg_dict = {}
     Avg_list = []
 
     for o in CFIP_sort_list:
@@ -69,8 +71,8 @@ def avgs():
 
 
         Avg_list.append(index_collector / 24)
-        Sorted_avg_list = Avg_list.sort()
+        Sorted_avg_dict = Avg_list.sort()
 
-    print(Sorted_avg_list)
+    'print(Sorted_avg_list)'
 
     return Sorted_avg_list
