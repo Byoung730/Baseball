@@ -74,4 +74,3 @@ def avgs():
     print(Sorted_avg_dict)
 
     return Sorted_avg_dict
-
