@@ -1,4 +1,4 @@
-from main import db
+from db import db
 
 class starting_pitchers(db.Model):
     Name = db.Column(db.String(80), unique=True)

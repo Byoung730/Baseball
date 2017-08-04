@@ -1,7 +1,7 @@
-from flask import Flask, request, redirect, render_template, flash
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from models import starting_pitchers
-from main import db
+from db import db
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
