@@ -1,7 +1,6 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from models import starting_pitchers
-from db import db
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
