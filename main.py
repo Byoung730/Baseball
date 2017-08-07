@@ -1,19 +1,19 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from models import starting_pitchers
+from models import starting_pitchers, Composite_Rank
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://baseball:baseball@localhost:8889/baseball'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://baseball:Composite_Rank@localhost:8889/baseball'
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
 
 @app.route("/", methods=['GET'])
 def index():
     baseball = starting_pitchers.query.all()
+    composite_rank = Composite_Rank.query.order_by('C_Rank asc')
 
-    return render_template('index.html', title="Baseball", baseball=baseball)
+    return render_template('index.html', title="Baseball", baseball=baseball, composite_rank=composite_rank)
 
 @app.route("/cfip", methods=['GET'])
 def CFIP_page():

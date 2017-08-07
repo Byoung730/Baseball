@@ -11,7 +11,6 @@ base = declarative_base()
 
 metadata = MetaData()
 engine = create_engine('mysql+pymysql://baseball:baseball@localhost:8889/baseball', echo=True)
-engine = create_engine('mysql+pymysql://baseball:Composite_Rank@localhost:8889/baseball', echo=True)
 
 session = sessionmaker(bind=engine)
 s = session()
@@ -109,8 +108,9 @@ def average():
     #starting_pitchers.insert().values(**Sorted_avg_dict)
 
     for key, value in Sorted_avg_dict.items():
-        x = Composite_Rank(Name=key, Composite_Rank=value)
+        x = Composite_Rank(C_Name=key, Composite_Rank=value)
         s.add(x)
+
 
     s.commit()
 

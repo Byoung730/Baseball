@@ -1,6 +1,7 @@
 from db import db
 
 class starting_pitchers(db.Model):
+    __tablename__ = 'starting_pitchers'
     Name = db.Column(db.String(80), unique=True)
     ID = db.Column(db.Integer, primary_key=True)
     CFIP = db.Column(db.Integer)
@@ -19,10 +20,9 @@ class starting_pitchers(db.Model):
     SW_Rank = db.Column(db.Integer)
     CT_Rank = db.Column(db.Integer)
     HC_Rank = db.Column(db.Integer)
-    Composite_Rank = db.Column(db.Float)
 
     def __init__(self, Name, CFIP, xFIP, FIP, KperBB, Total_Ks, WHIP, ERA, Innings_Pitched, Wins, Quality_Start_Rate,
-                 Ground_Ball_Rate, Soft_Contact_Rate, FP_Rank, SW_Rank, CT_Rank, HC_Rank, Composite_Rank):
+                 Ground_Ball_Rate, Soft_Contact_Rate, FP_Rank, SW_Rank, CT_Rank, HC_Rank):
         self.Name = Name
         self.CFIP = CFIP
         self.xFIP = xFIP
@@ -40,13 +40,13 @@ class starting_pitchers(db.Model):
         self.SW_Rank = SW_Rank
         self.CT_Rank = CT_Rank
         self.HC_Rank = HC_Rank
-        self.Composite_Rank = Composite_Rank
+
 
 class Composite_Rank(db.Model):
     __tablename__ = 'Composite_Rank'
-    C_Name = db.Column(db.String(80), unique=True)
-    Composite_Rank = db.Column(db.Float)
+    C_Name = db.Column(db.String(80), unique=True, primary_key=True)
+    C_Rank = db.Column(db.Float)
 
-    def __init__(self, C_Name, Composite_Rank):
+    def __init__(self, C_Name, C_Rank):
         self.C_Name = C_Name
-        self.Composite_Rank = Composite_Rank
+        self.C_Rank = C_Rank

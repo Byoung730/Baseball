@@ -62,4 +62,17 @@
     </tr>
 {% endfor %}
 </table>
+<div><h3>Composite Rank</h3></div>
+    <table class="table" border="3" cellpadding="7" cellspacing="7">
+    <tr>
+        <th>Name</th>
+        <th>Composite Rank</th>
+    </tr>
+    {% for row in composite_rank %}
+    <tr>
+        <td>{{ row.C_Name }}</td>
+        <td>{{ row.C_Rank }}</td>
+    </tr>
+        {% endfor %}
+</table>
 {% endblock %}
