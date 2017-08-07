@@ -1,13 +1,20 @@
-from flask_sqlalchemy import SQLAlchemy
-from models import starting_pitchers
+from models import *
 from db import db
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import *
 from main import app
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
 
+base = declarative_base()
+
+
+
+metadata = MetaData()
 engine = create_engine('mysql+pymysql://baseball:baseball@localhost:8889/baseball', echo=True)
-# Session = sessionmaker(bind=engine)
+engine = create_engine('mysql+pymysql://baseball:Composite_Rank@localhost:8889/baseball', echo=True)
 
+session = sessionmaker(bind=engine)
+s = session()
 
 def average():
     CFIP_sort_list = []
@@ -97,10 +104,17 @@ def average():
 
             Sorted_avg_dict[o.Name] = (index_collector / 26)
 
-        print(Sorted_avg_dict)
+    print(Sorted_avg_dict)
 
-    return Sorted_avg_dict
+    #starting_pitchers.insert().values(**Sorted_avg_dict)
 
+    for key, value in Sorted_avg_dict.items():
+        x = Composite_Rank(Name=key, Composite_Rank=value)
+        s.add(x)
+
+    s.commit()
+
+    return
 
 if __name__ == "__main__":
     db.app = app

@@ -5,6 +5,7 @@ from models import starting_pitchers
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://baseball:baseball@localhost:8889/baseball'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://baseball:Composite_Rank@localhost:8889/baseball'
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
 
