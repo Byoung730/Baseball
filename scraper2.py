@@ -140,18 +140,18 @@ def insert_stats(stats, player_category):
     
     if player_category == 'player':
         conn.execute("INSERT INTO player_stats VALUES
-            (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", stats)
+            (?,?,?,?,?,?,?)", stats)
         conn.commit()
         db_name = 'player_stats'
         print('inserted player')"""
     if player_category == 'pitcher':
         db_name = 'pitcher_stats'
         conn.execute("""INSERT INTO pitcher_stats VALUES
-            (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""", stats)
+            (?,?,?,?,?,?,?)""", stats)
         conn.commit()
         print('inserted pitcher')
 
-def get_stats(player_id, player_position):
+'''def get_stats(player_id, player_position):
     """
     Downloads all stats listed on FanGraphs for player_id at player_position
     """
@@ -177,7 +177,7 @@ def get_stats(player_id, player_position):
                 print(url)
                 stats = parse_player_stats(date_info, player_id, player_position)
                 insert_stats(stats, 'player')"""
-
+'''
 
 def create_tables():
     """
@@ -194,33 +194,13 @@ def create_tables():
                 position text)''')"""
     conn.execute('''CREATE TABLE IF NOT EXISTS pitcher_stats (
                 id text,
-                position text,
-                date text,
-                team text,
-                opp text,
-                gs real,
-                w real,
-                l real,
+                fip real,
+                whip real,
                 era real,
-                g real,
-                cg real,
-                sho real,
-                sv real,
-                hld real,
-                bs real,
-                ip real,
-                tbf real,
-                h real,
-                r real,
-                er real,
-                hr real,
-                bb real,
-                ibb real,
-                hbp real,
-                wp real,
-                bk real,
-                so real,
-                gsv2 real)''')
+                k_rate real,
+                KperBB real,
+                xFIP real)
+                ''')
     """conn.execute('''CREATE TABLE IF NOT EXISTS player_stats (
                 id text,
                 position text,
@@ -260,11 +240,9 @@ def main():
     """Main function"""
     create_tables()
     players = get_players()
-    for team in players:
-        for player in players[team]:
-            player_id = players[team][player]['id']
-            position = players[team][player]['position']
-            get_stats(player_id, position)
+    for player in players:
+            player_id = players[player]['id']
+            get_players(player_id)
     conn.close()
 
 if __name__ == '__main__':
