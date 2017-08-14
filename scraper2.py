@@ -29,11 +29,11 @@ def get_players():
     """
 
     base_url = 'https://www.fangraphs.com/leaders.aspx?pos=all&stats=sta&lg=all&qual=100&type=1&season=2017&month=0&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_50'
-    num_teams = 1
+    num_pitchers = 1
     players_links = {}
 
-    for team_id in range(1, num_teams+1):
-        url = base_team_url.format(team_id)
+    for pitcher_id in range(1, num_pitchers+1):
+        url = base_url.format(pitcher_id)
         resp = requests.get(url)
         if 'errorpath' not in resp.url:
             soup = BeautifulSoup(resp.text, 'html.parser')
@@ -77,43 +77,21 @@ def get_players():
     return players_links
 
 
-def parse_pitcher_stats(date_info, player_id, player_position):
+def parse_pitcher_stats(stat_info, player_id):
     """
     Downloads stats for pitchers
     """
-    date_stats = date_info.findAll('td')
 
-    date = date_stats[0].text.strip()
-    print(date)
-    team = date_stats[1].text.strip()
-    opp = date_stats[2].text.strip()
-    gs = date_stats[3].text.strip()
-    w = date_stats[4].text.strip()
-    l = date_stats[5].text.strip()
-    era = date_stats[6].text.strip()
-    g = date_stats[7].text.strip()
-    cg = date_stats[9].text.strip()
-    sho = date_stats[10].text.strip()
-    sv = date_stats[11].text.strip()
-    hld = date_stats[12].text.strip()
-    bs = date_stats[13].text.strip()
-    ip = date_stats[14].text.strip()
-    tbf = date_stats[15].text.strip()
-    h = date_stats[16].text.strip()
-    r = date_stats[17].text.strip()
-    er = date_stats[18].text.strip()
-    hr = date_stats[19].text.strip()
-    bb = date_stats[20].text.strip()
-    ibb = date_stats[21].text.strip()
-    hbp = date_stats[22].text.strip()
-    wp = date_stats[23].text.strip()
-    bk = date_stats[24].text.strip()
-    so = date_stats[25].text.strip()
-    gsv2 = date_stats[26].text.strip()
+    stats = stat_info.findAll('td')
 
-    stats = (player_id, player_position, date, team, opp, gs, w, l, era,
-             g, cg, sho, sv, hld, bs, ip, tbf, h, r, er, hr, bb, ibb,
-             hbp, wp, bk, so, gsv2)
+    fip = stats[13].text.strip()
+    whip = stats[9].text.strip()
+    era = stats[3].text.strip()
+    k_rate = stats[5].text.strip()
+    KperBB = stats[3].text.strip()
+    xFIP = stats[18].text.strip()
+
+    stats = (player_id, fip, whip, era, k_rate, KperBB, xFIP)
 
     return stats
 
